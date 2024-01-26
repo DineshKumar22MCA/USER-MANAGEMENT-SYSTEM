@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USER</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+        
+    }
+
+    table {
+        width: 40%; /* Adjust the width as needed */
+        margin: 20px auto; /* Center the table on the page */
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px; /* Adjust the padding as needed */
+        text-align: center; /* Center the text in cells */
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #3498db; /* Header background color */
+        color: #fff; /* Header text color */
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2; /* Even row background color */
+    }
+
+    a {
+        text-decoration: none;
+        color: #3498db;
+    }
+
+    a:hover {
+        color: #1f618d;
+    }
+
+    .add-record-link {
+        display: block;
+        margin: 50px auto; /* Center the link horizontally */
+        padding: 10px;
+        background-color: #3498db;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+    }
+    
+    .add-record-link {
+        display: block;
+        margin: 20px auto; /* Center the link horizontally */
+        padding: 10px;
+        background-color: #3498db;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+    }
+    
+    .add-record-link:hover {
+        background-color: #1f618d;
+    }
+
+    div {text-align: center;}
+    
+</style>
+
+</head>
+<body>
+    <h1> USER DETAIL </h1>
+
+
+    {{msg}}
+
+<table border = '1'>
+    <head>
+    
+         <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>ROLE</th>
+            <th>AGE</th>
+            <td>Edit</td>    
+            <th>DELETE</th>
+
+        </tr> 
+        
+    </head>
+    <BODY>
+        {% for i in a %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.role}}</td>
+            <td>{{i.age}}</td>
+            <td><a href="{% url 'edit' id=i.id %}">Edit</a></td>    
+            <td><a href="#" onclick="confirmDelete('{{ i.id }}', '{% url 'delete' id=i.id %}')">DELETE</a></td>
+
+<script>
+    function confirmDelete(id, deleteUrl) {
+        var confirmDelete = confirm("Are you sure you want to delete this record?");
+        if (confirmDelete) {
+            window.location.href = deleteUrl;
+        }
+    }
+</script>
+
+
+        </tr>
+        {% endfor %}
+    </body>
+<br>
+<br><div>
+   <button <a href="{% url 'insert' %}"> >ADD RECORD <style text-align : center></a> </button>
+</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USER</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #3498db;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #1f618d;
+    }
+
+    a {
+        display: inline-block;
+        margin-top: 10px;
+        text-decoration: none;
+        color: #3498db;
+    }
+
+    button {
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #1f618d;
+    }
+</style>
+</head>
+<body>
+    <h1> ADD NEW RECORD </h1>
+    
+  
+
+<form action=" " method="POST">
+    {% csrf_token %}
+    <label> NAME </label><br>
+    <input type="text" name="name" required><br>
+
+    <label> ROLE </label><br>
+    <input type="text" name="role" required><br>
+
+    <label> AGE </label><br>
+    <input type="number" name="age" required><br><br>
+
+    <input type="submit" value="SAVE" required>
+
+    
+</form>
+<a href="{% url 'display' %}"> <button>BACK HOME </button> </a>
+</body>
+</html>
